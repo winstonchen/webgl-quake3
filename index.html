@@ -79,4 +79,12 @@
             <a href="http://blog.tojicode.com/">See more WebGL demo's at my blog</a>
         </div>
     </body>
+     <script>
+    window.onload = function() {
+      let event = document.createEvent("Event");
+      event.initEvent("sketchfabreadytopresentmodel", true, true);
+      window.dispatchEvent(event);
+      console.log("disptching sketchfabreadytopresentmodel test before model loads");
+    }
+  </script>
 </html>
