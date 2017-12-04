@@ -470,7 +470,7 @@ function initEvents() {
         var yDelta = y - lastY;
         lastX = x;
         lastY = y;
-
+        console.log("moveLook - yDelta: " + yDelta + ", xDelta: " + xDelta);
         if (movingModel) {
             moveLookLocked(xDelta, yDelta);
         }
@@ -486,11 +486,19 @@ function initEvents() {
         var yDelta = y - lastMoveY;
         lastMoveX = x;
         lastMoveY = y;
-
+        console.log("moveUpdate - yDelta: " + yDelta + ", xDelta: " + xDelta);
         var dir = [xDelta, yDelta * -1, 0];
 
         moveViewOriented(dir, frameTime*2);
     }
+
+    document.addEventListener("FromAndroidMoveUpdate", ()=> {
+      console.log("FromAndroidMoveUpdate");
+    });
+
+    document.addEventListener("FromAndroidMoveLook", ()=> {
+      console.log("FromAndroidMoveLook");
+    });
 
     viewport.addEventListener("click", function(event) {
         viewport.requestPointerLock();
